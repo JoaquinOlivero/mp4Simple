@@ -62,11 +62,3 @@ try:
 except Exception as e:
     logging.info(e)
     sys.exit(1)
-
-
-# 2022-05-28 06:15:54 - qBittorrentPostProcess - DEBUG - Root Path: /mnt/Hard Disk/qbittorrent/downloads/Harry.Potter.And.The.Prisoner.Of.Azkaban.2004.1080p.BluRay.H264.AAC-RARBG.
-# 2022-05-28 06:15:54 - qBittorrentPostProcess - DEBUG - Content Path: /mnt/Hard Disk/qbittorrent/downloads/Harry.Potter.And.The.Prisoner.Of.Azkaban.2004.1080p.BluRay.H264.AAC-RARBG.
-# 2022-05-28 06:15:54 - qBittorrentPostProcess - DEBUG - Label: radarr.
-# 2022-05-28 06:15:54 - qBittorrentPostProcess - DEBUG - Categories: ['sickbeard', 'tv-sonarr', 'radarr', 'sickrage', 'bypass'].
-# 2022-05-28 06:15:54 - qBittorrentPostProcess - DEBUG - Torrent hash: 7712cd259b3d0552f49a4f02b2bc3652a4854093.
-# 2022-05-28 06:15:54 - qBittorrentPostProcess - DEBUG - Torrent name: Harry.Potter.And.The.Prisoner.Of.Azkaban.2004.1080p.BluRay.H264.AAC-RARBG.

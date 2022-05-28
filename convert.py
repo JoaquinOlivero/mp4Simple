@@ -134,31 +134,3 @@ def main(filepath, logging):
         convert(fileContainer, fileAudioStreams, media_file, logging)
     except Exception as e:
         logging.info(e)
-
-
-## Check for container
-## Check for audio streams
-## 
-## If present, extract subs in spanish and english. And convert them to .srt ## ffmpeg -i Movie.mkv -map 0:s:0 subs.srt
-## If not present, convert audio to AAC 2.0. If AAC 5.1 is present prioritize for conversion to stereo. ## convert from acc 5.1 to acc 2.0 ffmpeg -i Severance.S01E01.mp4 -map 0:v:0 -map 0:a:2 -metadata:s:a:0 handler_name='Stereo' -c copy -c:a aac -ac 2 test.mp4
-## if the container is not mp4 convert to mp4
-
-## move_text subtitles (usually found in .mp4 containers)
-#  'avg_frame_rate': '0/0',
-#  'bit_rate': '63',
-#  'codec_long_name': 'MOV text',
-#  'codec_name': 'mov_text',
-#  'codec_tag': '0x67337874',
-#  'codec_tag_string': 'tx3g',
-#  'codec_time_base': '0/1',
-#  'codec_type': 'subtitle',
-
-## srt subtitles (usually embedded in .mkv containers. Can't be embedded in .mp4 containers)
-#  'avg_frame_rate': '0/0',
-#  'codec_long_name': 'SubRip subtitle',
-#  'codec_name': 'subrip',
-#  'codec_tag': '0x0000',
-#  'codec_tag_string': '[0][0][0][0]',
-#  'codec_time_base': '0/1',
-#  'codec_type': 'subtitle',
-#  'tags':{'language': 'eng'}
