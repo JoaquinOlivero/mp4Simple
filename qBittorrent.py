@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import sys
 from convert import main
@@ -8,6 +10,7 @@ import sonarr, radarr
 dir_path = os.path.dirname(os.path.realpath(__file__))
 logging.basicConfig(filename=dir_path + '/mp4Simple.log', level=logging.INFO, format='%(asctime)s %(levelname)-8s %(message)s', datefmt='%d-%m-%Y %H:%M:%S')
 logging.info("Starting qBittorrent.py")
+
 ## Get config.ini values
 config = configparser.ConfigParser()
 config.read(dir_path + '/config.ini')

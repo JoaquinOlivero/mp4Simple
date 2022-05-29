@@ -2,8 +2,8 @@ import os
 from os import walk
 import pathlib
 import ffmpeg
-from pprint import pprint
 import subprocess
+import logging
 
 
 def subtitles(streamIndex, lang, media_file):
@@ -68,7 +68,6 @@ def convert(fileContainer, fileAudioStreams, media_file, logging):
                     audioDisposition.append("-disposition:a:" + str(i))
                     audioDisposition.append(" 0")
 
-            # ffmpeg -i Severance.S01E01.mp4 -map 0:v:0 -map 0:a:2 -metadata:s:a:0 handler_name='Stereo' -c copy -c:a aac -ac 2 test.mp4
             logging.info('AAC 2.0 stream found in ' + media_file + ' . Setting it as default audio stream')
             subprocess.call(["ffmpeg", "-y", "-i", media_file + ".original", "-map", "0:v:0"] + audioMapping + ["-c", "copy"] + audioDisposition + ["-movflags", "+faststart", media_file],  stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
             os.remove(media_file + ".original")
@@ -112,9 +111,6 @@ def main(filepath, logging):
                         wantedSubtitlesStreams.append({"index": index, "lang": fileSubtitlesStreams[index]["tags"]["language"], "codec_name": fileSubtitlesStreams[index]["codec_name"]})
 
             ## Subtitle extraction
-            # !!!! UNCOMMENT THE CODE BELOW. ## Code below is commented out to avoid subs extraction while testing other functionalities.
-            # for index in range(len(wantedSubtitlesStreams)):
-            #     subtitles(wantedSubtitlesStreams[index]["index"], wantedSubtitlesStreams[index]["lang"], media_file)
             for sub in wantedSubtitlesStreams:
                 subtitles(sub["index"], sub["lang"], media_file)
         else:
